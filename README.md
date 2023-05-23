@@ -1,25 +1,37 @@
 # 페이징 시 쿼리 LIMIT, OFFSET (MY-SQL)
-
-Select  * from 테이블명 orders LIMIT 숫자(★);\
-숫자만큼의 행 출력\
-Ex) 10행 출력\
+```
+Select  * from 테이블명 orders LIMIT 숫자(★);
+숫자만큼의 행 출력
+Ex) 10행 출력
 select * from member ORDERS LIMIT 10;
-
-Select * from 테이블명 orders LIMIT 숫자(★) OFFSET 숫자(♥);\
-LIMIT 숫자 : 출력할 행의 수\
-OFFSET 숫자 : 몇번째 row부터 출력할 지. (1번째 row면 0)\
-Ex) 10행씩 출력\
-1페이지 : select * from member ORDERS LIMIT 10 OFFSET 0;\
+```
+```
+Select * from 테이블명 orders LIMIT 숫자(★) OFFSET 숫자(♥);
+LIMIT 숫자 : 출력할 행의 수
+OFFSET 숫자 : 몇번째 row부터 출력할 지. (1번째 row면 0)
+Ex) 10행씩 출력
+1페이지 : select * from member ORDERS LIMIT 10 OFFSET 0;
 2페이지 : select * from member ORDERS LIMIT 10 OFFSET 10;
-
-Select * from 테이블명 orders LIMIT 숫자1(♥), 숫자2(★);\
-숫자1 : ♥번째 row부터 출력\
-숫자2 : ★개의 행 출력\
-Ex) 10행씩 출력\
-1페이지 : select * from member ORDERS LIMIT 0, 10;\
-2페이지 : select * from member ORDERS LIMIT 10, 10;
-
+```
+```
+Select * from 테이블명 orders LIMIT 숫자1(♥), 숫자2(★);
+숫자1 : ♥번째 row부터 출력
+숫자2 : ★개의 행 출력
+Ex) 10행씩 출력
+1페이지 : select * from member ORDERS LIMIT 0, 10;
+2페이지 ```: select * from member ORDERS LIMIT 10, 10;
+```
 [출처](https://itnewvom.tistory.com/21)
+
+## 위 예시에서 ORDERS 키워드는 잘못된 키워드임, 아래와 같이 ORDER BY 를 사용해야 함
+예를 들어 "customers"라는 테이블이 있고 각 페이지에 "last_name" 열로 정렬된 10개의 행이 포함된 결과의 두 번째 페이지를 검색하려고 한다고 가정해 보겠습니다. 쿼리는 다음과 같습니다.
+```
+SELECT * FROM customers
+ORDER BY last_name
+LIMIT 10 OFFSET 10;
+```
+이 쿼리는 처음 10개 행을 건너뛰고 "last_name" 열로 정렬된 다음 10개 행을 반환합니다.
+
 
 <!-- ### `npm start`
 
