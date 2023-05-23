@@ -1,12 +1,27 @@
-# Getting Started with Create React App
+## 페이징 시 쿼리 LIMIT, OFFSET (MY-SQL)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Select  * from 테이블명 orders LIMIT 숫자(★);\
+숫자만큼의 행 출력\
+Ex) 10행 출력\
+select * from member ORDERS LIMIT 10;\
 
-## Available Scripts
+Select * from 테이블명 orders LIMIT 숫자(★) OFFSET 숫자(♥);\
+LIMIT 숫자 : 출력할 행의 수\
+OFFSET 숫자 : 몇번째 row부터 출력할 지. (1번째 row면 0)\
+Ex) 10행씩 출력\
+1페이지 : select * from member ORDERS LIMIT 10 OFFSET 0;\
+2페이지 : select * from member ORDERS LIMIT 10 OFFSET 10;\
 
-In the project directory, you can run:
+Select * from 테이블명 orders LIMIT 숫자1(♥), 숫자2(★);\
+숫자1 : ♥번째 row부터 출력\
+숫자2 : ★개의 행 출력\
+Ex) 10행씩 출력\
+1페이지 : select * from member ORDERS LIMIT 0, 10;\
+2페이지 : select * from member ORDERS LIMIT 10, 10;\
 
-### `npm start`
+[출처](https://itnewvom.tistory.com/21)
+
+<!-- ### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
@@ -41,8 +56,8 @@ You don't have to ever use `eject`. The curated feature set is suitable for smal
 
 ## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started). -->
+<!-- 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### Code Splitting
@@ -60,7 +75,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/m
 ### Advanced Configuration
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
+ -->
 ### Deployment
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
